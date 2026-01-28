@@ -5,7 +5,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
-  <link rel="icon" type="image/png" href="https://smkpesat.sch.id/wp-content/uploads/2025/11/LOGO-XPRO-NEW-2048x1365.png">
+  <link rel="icon" type="image/png" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQc7BzfAOGrygvQ8AwkEkcarwJVRQ9YO01FZg&s=100">
   <title>
     Voting Ketua Osis
   </title>

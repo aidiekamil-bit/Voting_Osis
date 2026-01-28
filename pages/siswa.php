@@ -23,11 +23,12 @@ include "config.php";
                 <table class="table align-items-center mb-0">
                   <thead>
                     <tr>
-                      <th class=" text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">No</th>
-                      <th class=" text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ">Nama</th>
-                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ">Kelas</th>
-                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7" >Jurusan</th>
-                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Alamat</th>
+                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">No</th>
+                      <th class=" text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-3">Nama</th>
+                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Kelas</th>
+                      <th class=" text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7 " >Jurusan</th>
+                       <th class=" text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7 " >alamat</th>
+                      <th></th>
                     </tr>
                   </thead>
                   <tbody>
@@ -42,7 +43,7 @@ include "config.php";
                   
                   ?>
                   <td >
-                    <div class="d-flex px-3 ">
+                    <div class="d-flex ps-4 ">
                     <?= $no++ ?>
                   </div>
                   </td>
@@ -58,18 +59,18 @@ include "config.php";
                         </div>
                       </td>
                       <td>
-                        <p class="text-xs font-weight-bold mb-0 text-center"><?= $data['kelas']?></p>
+                        <p class="text-xs font-weight-bold mb-0 text-center pe-3"><?= $data['kelas']?></p>
                        
                       </td>
-                      <td class="align-middle text-center text-sm">
-                        <span class="badge badge-sm bg-gradient-success"></span>
+                      <td class="align-middle text-center text-sm ">
+                        <span class="badge badge-sm bg-gradient-success"><?= $data['jurusan']?></span>
                       </td>
-                      <td class="align-middle ">
-                        <span class="text-secondary text-xs font-weight-bold"><?= $data['jurusan']?></span>
+                      <td class="align-middle  text-center text-sm ">
+                        <span class="text-secondary text-xs font-weight-bold " ><?= $data['alamat']?></span>
                       </td>
                       <td class="align-middle">
                         <a href="javascript:;" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
-                          <?= $data['alamat']?>
+                          Edit
                         </a>
                       </td>
                     </tr>
