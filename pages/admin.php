@@ -11,10 +11,10 @@ include "config.php";
         <div class="col-12">
           <div class="card mb-4">
             <div class="card-header pb-0">
-              <h6>Data Siswa</h6>
+              <h6>Data Admin</h6>
             </div>
             
-            <div class="card-body px-0 pt-0 pb-2"><a href="tambah_siswa.php">
+            <div class="card-body px-0 pt-0 pb-2"><a href="tambah_admin.php">
                 <button class="btn btn-primary w-15 mx-3 mt-3">
                             Tambah Data
                             </button> 
@@ -24,12 +24,13 @@ include "config.php";
                   <thead>
                     <tr>
                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">No</th>
-                      <th class=" text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-3">Nama</th>
-                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Kelas</th>
-                      <th class=" text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7 " >Jurusan</th>
+                      <th class=" text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-3">Username</th>
+                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Password</th>
+                      <th class=" text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7 " >Nama</th>
                        <th class=" text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7 " >alamat</th>
-                        <th class=" text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7 ms-3" >Actions</th>
+                       <th class=" text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7 " >Actions</th>
                       <th></th>
+                       <th></th>
                     </tr>
                   </thead>
                   <tbody>
@@ -37,7 +38,7 @@ include "config.php";
 
                      <?php
                      $no=1;
-                  $query = mysqli_query($koneksi, "select * from tbl_siswa");
+                  $query = mysqli_query($koneksi, "select * from tbl_admin");
                   foreach($query as $data): 
 
                   
@@ -54,30 +55,29 @@ include "config.php";
                             <img src="../assets/img/team-2.jpg" class="avatar avatar-sm me-3" alt="user1">
                           </div>
                           <div class="d-flex flex-column justify-content-center">
-                            <h6 class="mb-0 text-sm"><?= $data['nama']?></h6>
+                            <h6 class="mb-0 text-sm"><?= $data['username']?></h6>
                             <p class="text-xs text-secondary mb-0">john@creative-tim.com</p>
                           </div>
                         </div>
                       </td>
                       <td>
-                        <p class="text-xs font-weight-bold mb-0 text-center pe-3"><?= $data['kelas']?></p>
+                        <p class="text-xs font-weight-bold mb-0 text-center pe-3"><?= $data['password']?></p>
                        
                       </td>
                       <td class="align-middle text-center text-sm ">
-                        <span class="badge badge-sm bg-gradient-success"><?= $data['jurusan']?></span>
+                        <span class="badge badge-sm bg-gradient-success"><?= $data['nama']?></span>
                       </td>
                       <td class="align-middle  text-center text-sm ">
                         <span class="text-secondary text-xs font-weight-bold " ><?= $data['alamat']?></span>
                       </td>
-                      <td ><button class="btn  btn-primary  ">
-                        <a href="edit_siswa.php?id=<?=$data['id_siswa'];?>" class="text-secondary font-weight-bold text-xs text-white" data-toggle="tooltip" data-original-title="Edit siswa">
+                      <td> <button class="btn  btn-primary  ">
+                        <a href="edit_admin.php?id=<?=$data['id_admin'];?>" class="text-secondary font-weight-bold text-xs text-white" data-toggle="tooltip" data-original-title="Edit user">
                           Edit
                         </a>
                   </button>
-                  </td>
-                  
-                      <td><button class="btn btn-danger ">
-                        <a href="delete_siswa.php?id=<?=$data['id_siswa'];?>" class="text-secondary font-weight-bold text-xs text-white" data-toggle="tooltip" data-original-title="Edit user">
+                      </td>
+                      <td ><button class="btn  btn-primary  ">
+                        <a href="delete_admin.php?id=<?=$data['id_admin'];?>" class="text-secondary font-weight-bold text-xs text-white" data-toggle="tooltip" data-original-title="Edit user">
                           Delete
                         </a>
                   </button>

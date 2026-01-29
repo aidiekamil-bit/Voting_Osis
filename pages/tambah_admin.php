@@ -3,12 +3,12 @@ include "header.php";
 include "config.php";
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $username = $_POST['username'];
+    $password = $_POST['password'];
     $nama = $_POST['nama'];
-    $kelas = $_POST['kelas'];
-    $jurusan = $_POST['jurusan'];
     $alamat = $_POST['alamat'];
 
-    mysqli_query($koneksi, "INSERT INTO tbl_siswa (nama, kelas, jurusan, alamat) VALUES ('$nama', '$kelas', '$jurusan', '$alamat')" );
+    mysqli_query($koneksi, "INSERT INTO tbl_admin (username, password, nama, alamat) VALUES ('$username', '$password', '$nama', '$alamat')" );
 }
 ?>
 <div class="container-fluid py-4">
@@ -16,21 +16,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <div class="col-12">
           <div class="card mb-4">
             <div class="card-header pb-0">
-              <h6>Data Siswa</h6>
+              <h6>Data Admin</h6>
             </div>
             <div class="card-body px-0 pt-0 pb-2">
               <form method="POST">
                             <div class="mb-3 mt-3 mx-4">
+                                <label for="">Username</label>
+                                <input type="text" class="form-control " name="username" placeholder="Input Username">
+                            </div>
+                             <div class="mb-3 mt-3 mx-4">
+                                <label for="">Password</label>
+                                <input type="text" class="form-control" name="password"  placeholder="Input Password">
+                            </div>
+                             <div class="mb-3 mt-3 mx-4">
                                 <label for="">Nama</label>
-                                <input type="text" class="form-control " name="nama" placeholder="Input Nama">
-                            </div>
-                             <div class="mb-3 mt-3 mx-4">
-                                <label for="">Kelas</label>
-                                <input type="text" class="form-control" name="kelas"  placeholder="Input Kelas">
-                            </div>
-                             <div class="mb-3 mt-3 mx-4">
-                                <label for="">Jurusan</label>
-                                <input type="text" class="form-control" name="jurusan"  placeholder="Input Jurusan">
+                                <input type="text" class="form-control" name="nama"  placeholder="Input Nama">
                             </div>
                             <div class="mb-3 mt-3 mx-4">
                                 <label for="">Alamat</label>
@@ -49,4 +49,4 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         </div>
       </div>
     </div>
-</div> 
+</div>

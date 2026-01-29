@@ -1,15 +1,33 @@
 <?php
-include "header.php";
 include "config.php";
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+//ambil id daru url
+//kalau di url ada id, simpan ke var $id
+//kalau ga ada, isi var $id dengan null, jadi $id = null
+$id_siswa= $_GET['id'] ?? null;
+
+//ambil data dari id
+if($id_siswa){
+    $query = mysqli_query($koneksi, "SELECT * from tbl_siswa where id_siswa = '$id_siswa'");
+    $siswa = mysqli_fetch_assoc($query);
+    //mysqli_fetch_assoc akan mengambil 1 baris data hasil dari query
+}
+//update
+if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $nama = $_POST['nama'];
     $kelas = $_POST['kelas'];
     $jurusan = $_POST['jurusan'];
     $alamat = $_POST['alamat'];
 
-    mysqli_query($koneksi, "INSERT INTO tbl_siswa (nama, kelas, jurusan, alamat) VALUES ('$nama', '$kelas', '$jurusan', '$alamat')" );
+    mysqli_query($koneksi, "update tbl_siswa set nama='$nama', kelas='$kelas', jurusan='$jurusan', alamat='$alamat' where id_siswa = '$id_siswa' ");
+
+    
 }
+
+include "header.php";
+
+
 ?>
 <div class="container-fluid py-4">
  <div class="row">
@@ -22,19 +40,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
               <form method="POST">
                             <div class="mb-3 mt-3 mx-4">
                                 <label for="">Nama</label>
-                                <input type="text" class="form-control " name="nama" placeholder="Input Nama">
+                                <input type="text" class="form-control " name="nama"  value= "<?= $siswa['nama']; ?>" >
                             </div>
                              <div class="mb-3 mt-3 mx-4">
                                 <label for="">Kelas</label>
-                                <input type="text" class="form-control" name="kelas"  placeholder="Input Kelas">
+                                <input type="text" class="form-control" name="kelas"   value= "<?= $siswa['kelas']; ?>">
                             </div>
                              <div class="mb-3 mt-3 mx-4">
                                 <label for="">Jurusan</label>
-                                <input type="text" class="form-control" name="jurusan"  placeholder="Input Jurusan">
+                                <input type="text" class="form-control" name="jurusan" value= "<?= $siswa['jurusan']; ?>">
                             </div>
                             <div class="mb-3 mt-3 mx-4">
                                 <label for="">Alamat</label>
-                                <input type="text" class="form-control" name="alamat"  placeholder="Input Alamat">
+                                <input type="text" class="form-control" name="alamat" value= "<?= $siswa['alamat']; ?>" >
                             </div>
                             <div class= "mx-4">
                             <button class="btn btn-warning form-control ">
