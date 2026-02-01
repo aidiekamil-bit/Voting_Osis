@@ -23,12 +23,12 @@ include "config.php";
                 <table class="table align-items-center mb-0">
                   <thead>
                     <tr>
-                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">No</th>
+                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center">No</th>
                       <th class=" text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-3">Nama Calon</th>
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Visi</th>
                       <th class=" text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7 " >Misi</th>
                        <th class=" text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7 " >Foto</th>
-                        <th class=" text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7 " >Actions</th>
+                        <th class=" text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center" >Actions</th>
                       <th></th>
                     </tr>
                   </thead>
@@ -44,7 +44,7 @@ include "config.php";
                   
                   ?>
                   <td >
-                    <div class="d-flex ps-4 ">
+                    <div class="text-center ">
                     <?= $no++ ?>
                   </div>
                   </td>
@@ -64,22 +64,22 @@ include "config.php";
                        
                       </td>
                       <td class="align-middle text-center text-sm ">
-                        <span class="badge badge-sm bg-gradient-success"><?= $data['misi']?></span>
+                        <span class="text-secondary text-xs font-weight-bold "><?= $data['misi']?></span>
                       </td>
                       <td class="align-middle  text-center text-sm ">
                         <span class="text-secondary text-xs font-weight-bold " ><?= $data['foto']?></span>
                       </td>
-                      <td ><button class="btn  btn-primary  ">
-                        <a  href="edit_calon.php?id=<?=$data['id_calon'];?>" class="text-secondary font-weight-bold text-xs text-white" data-toggle="tooltip" data-original-title="Edit user">
-                          Edit
-                        </a>
+                      <td class="text-center">
+                      <a  href="edit_calon.php?id=<?=$data['id_calon'];?>" class="text-secondary font-weight-bold text-xs text-white" data-toggle="tooltip" data-original-title="Edit user">  
+                      <button class="btn  btn-primary  w-35">
+                        Edit
                   </button>
-                      </td>
-                      <td><button class="btn  btn-primary  ">
-                        <a  href="delete_calon.php?id=<?=$data['id_calon'];?>" class="text-secondary font-weight-bold text-xs text-white" data-toggle="tooltip" data-original-title="Edit user">
-                          Delete
-                        </a>
+                  </a>
+                  <a  href="delete_calon.php?id=<?=$data['id_calon'];?>" class="text-secondary font-weight-bold text-xs text-white" data-toggle="tooltip" data-original-title="Edit user">
+                      <button class="btn  btn-danger  ">
+                        Delete
                   </button>
+                  </a>
                       </td>
                     </tr>
                     <?php endforeach ?>

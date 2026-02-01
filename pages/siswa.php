@@ -23,7 +23,7 @@ include "config.php";
                 <table class="table align-items-center mb-0">
                   <thead>
                     <tr>
-                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">No</th>
+                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center">No</th>
                       <th class=" text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-3">Nama</th>
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Kelas</th>
                       <th class=" text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7 " >Jurusan</th>
@@ -44,7 +44,7 @@ include "config.php";
                   
                   ?>
                   <td >
-                    <div class="d-flex ps-4 ">
+                    <div class="text-center ">
                     <?= $no++ ?>
                   </div>
                   </td>
@@ -64,23 +64,20 @@ include "config.php";
                        
                       </td>
                       <td class="align-middle text-center text-sm ">
-                        <span class="badge badge-sm bg-gradient-success"><?= $data['jurusan']?></span>
+                        <span class="font-weight-bold text-secondary text-xs  "><?= $data['jurusan']?></span>
                       </td>
                       <td class="align-middle  text-center text-sm ">
                         <span class="text-secondary text-xs font-weight-bold " ><?= $data['alamat']?></span>
                       </td>
-                      <td ><button class="btn  btn-primary  ">
-                        <a href="edit_siswa.php?id=<?=$data['id_siswa'];?>" class="text-secondary font-weight-bold text-xs text-white" data-toggle="tooltip" data-original-title="Edit siswa">
-                          Edit
-                        </a>
-                  </button>
-                  </td>
-                  
-                      <td><button class="btn btn-danger ">
-                        <a href="delete_siswa.php?id=<?=$data['id_siswa'];?>" class="text-secondary font-weight-bold text-xs text-white" data-toggle="tooltip" data-original-title="Edit user">
-                          Delete
-                        </a>
-                  </button>
+                      <td class="text-center "> <a href="edit_siswa.php?id=<?=$data['id_siswa'];?>" class="text-secondary font-weight-bold text-xs text-white" data-toggle="tooltip" data-original-title="Edit siswa"><button class="btn  btn-primary  w-40 ">
+                        Edit
+                          </button>
+                  </a>
+                    <a href="delete_siswa.php?id=<?=$data['id_siswa'];?>" class="text-secondary font-weight-bold text-xs text-white" data-toggle="tooltip" data-original-title="Edit user">
+                      <button class="btn btn-danger ">
+                        Delete
+                        </button>
+                  </a>
                       </td>
                     </tr>
                     <?php endforeach ?>
