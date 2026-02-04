@@ -1,6 +1,13 @@
 <?php
-include "header.php";
-include "config.php";
+include "../header/header.php";
+include "../header/config.php";
+
+$current_page = basename($_SERVER['PHP_SELF']);
+// $current_page = siswa.php
+
+// $_SERVER['PHP_SELF'] ini adalah variabel bawaan PHP yang berisi alamat file yang sedang dibuka.
+// basename() adalah fungsi PHP untuk mengambil nama file saja dari sebuah path.
+// ambil alamat file sekarang ke ambil name filenya saja.
 
 ?>
 
@@ -51,7 +58,7 @@ include "config.php";
                       <td>
                         <div class="d-flex px-2 py-1">
                           <div>
-                            <img src="../assets/img/team-2.jpg" class="avatar avatar-sm me-3" alt="user1">
+                            <img src="../../assets/img/team-2.jpg" class="avatar avatar-sm me-3" alt="user1">
                           </div>
                           <div class="d-flex flex-column justify-content-center">
                             <h6 class="mb-0 text-sm"><?= $data['nama']?></h6>
@@ -69,11 +76,18 @@ include "config.php";
                       <td class="align-middle  text-center text-sm ">
                         <span class="text-secondary text-xs font-weight-bold " ><?= $data['alamat']?></span>
                       </td>
-                      <td class="text-center "> <a href="edit_siswa.php?id=<?=$data['id_siswa'];?>" class="text-secondary font-weight-bold text-xs text-white" data-toggle="tooltip" data-original-title="Edit siswa"><button class="btn  btn-primary  w-40 ">
+                      <td class="text-center "> 
+                        <a href="edit_siswa.php?id=<?=$data['id_siswa'];?>" class="text-secondary font-weight-bold text-xs text-white" data-toggle="tooltip" data-original-title="Edit siswa">
+                          <button class="btn  btn-primary w-45 ">
                         Edit
                           </button>
                   </a>
-                    <a href="delete_siswa.php?id=<?=$data['id_siswa'];?>" class="text-secondary font-weight-bold text-xs text-white" data-toggle="tooltip" data-original-title="Edit user">
+                   <!-- <a href="delete_siswa.php?id class="text-secondary font-weight-bold text-xs text-white" data-toggle="tooltip" data-original-title="Edit user">
+                      <button class="btn btn-danger ">
+                        Delete
+                        </button>
+                  </a> -->
+                    <a href="#" class="text-secondary font-weight-bold text-xs text-white" onclick="hapusSiswa(<?= $data['id_siswa'] ?>)" data-toggle="tooltip" data-original-title="Edit user">
                       <button class="btn btn-danger ">
                         Delete
                         </button>
@@ -91,5 +105,24 @@ include "config.php";
       </div>
 
 </div>
-                 
+   <script>
+    function hapusSiswa(id_siswa){
+    Swal.fire({
+  title: "Apakah Anda Yakin ?",
+  text: "Data siswa akan di hapus permanen!",
+  showDenyButton: true,
+  // showCancelButton: true,
+  confirmButtonText: "Ya, Hapus",
+  cancelButtonText: 'Batal',
+  // denyButtonText: `Don't save`
+}).then((result) => {
+  if (result.isConfirmed) {
+    window.location = 'delete_siswa.php?id= ' + id_siswa;
+    Swal.fire("Data Terhapus", "", "success");
+  } else if (result.isDenied) {
+    Swal.fire("Changes are not saved", "", "info");
+  }
+});
+ }
+   </script>              
 </body>

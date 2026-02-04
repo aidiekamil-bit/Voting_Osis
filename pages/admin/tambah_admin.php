@@ -1,15 +1,21 @@
 <?php
-include "header.php";
-include "config.php";
-
+include "../header/header.php";
+include "../header/config.php";
+$current_page = basename($_SERVER['PHP_SELF']);
+$berhasil = false;
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $username = $_POST['username'];
     $password = $_POST['password'];
     $nama = $_POST['nama'];
     $alamat = $_POST['alamat'];
 
-    mysqli_query($koneksi, "INSERT INTO tbl_admin (username, password, nama, alamat) VALUES ('$username', '$password', '$nama', '$alamat')" );
-}
+    $query = mysqli_query($koneksi, "INSERT INTO tbl_admin (username, password, nama, alamat) VALUES ('$username', '$password', '$nama', '$alamat')" );
+
+    if($query){
+    $berhasil = true;
+   }
+
+    }
 ?>
 <div class="container-fluid py-4">
  <div class="row">
@@ -50,3 +56,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       </div>
     </div>
 </div>
+
+<?php if ($berhasil) { ?>
+<script>
+
+Swal.fire({
+  title: "Berhasil!",
+  text: "Data Berhasil Di Simpan!",
+  icon: "success",
+ showConfirmButton: false,
+ timer: 2000
+}).then(() => {
+  window.location.href = "admin.php";
+});
+
+</script>
+<?php } ?>

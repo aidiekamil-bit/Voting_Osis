@@ -1,6 +1,9 @@
 <?php
-include "header.php";
-include "config.php";
+include "../header/header.php";
+include "../header/config.php";
+$current_page = basename($_SERVER['PHP_SELF']);
+
+$berhasil = false;
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $nama = $_POST['nama'];
@@ -8,7 +11,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $jurusan = $_POST['jurusan'];
     $alamat = $_POST['alamat'];
 
-    mysqli_query($koneksi, "INSERT INTO tbl_siswa (nama, kelas, jurusan, alamat) VALUES ('$nama', '$kelas', '$jurusan', '$alamat')" );
+   $query = mysqli_query($koneksi, "INSERT INTO tbl_siswa (nama, kelas, jurusan, alamat) VALUES ('$nama', '$kelas', '$jurusan', '$alamat')" );
+
+   if($query){
+    $berhasil = true;
+   }
 }
 ?>
 <div class="container-fluid py-4">
@@ -50,3 +57,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       </div>
     </div>
 </div> 
+
+<?php if ($berhasil) { ?>
+<script>
+
+Swal.fire({
+  title: "Berhasil!",
+  text: "Data Berhasil Di Simpan!",
+  icon: "success",
+ showConfirmButton: false,
+ timer: 2000
+}).then(() => {
+  window.location.href = "siswa.php";
+});
+
+</script>
+<?php } ?>

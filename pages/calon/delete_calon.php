@@ -1,5 +1,5 @@
 <?php
-include "config.php";
+include "../header/config.php";
 
 //ambil id dari URL
 $id_calon= $_GET['id'] ?? null;

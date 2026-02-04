@@ -1,33 +1,35 @@
 <?php
-include "config.php";
+include "../header/config.php";
+$current_page = basename($_SERVER['PHP_SELF']);
 
+$berhasil = false;
 
 //ambil id daru url
 //kalau di url ada id, simpan ke var $id
 //kalau ga ada, isi var $id dengan null, jadi $id = null
-$id_admin= $_GET['id'] ?? null;
+$id_siswa= $_GET['id'] ?? null;
 
 //ambil data dari id
-if($id_admin){
-    $query = mysqli_query($koneksi, "SELECT * from tbl_admin where id_admin = '$id_admin'");
+if($id_siswa){
+    $query = mysqli_query($koneksi, "SELECT * from tbl_siswa where id_siswa = '$id_siswa'");
     $siswa = mysqli_fetch_assoc($query);
     //mysqli_fetch_assoc akan mengambil 1 baris data hasil dari query
 }
 //update
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $username = $_POST['username'];
-    $password = $_POST['password'];
+if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $nama = $_POST['nama'];
+    $kelas = $_POST['kelas'];
+    $jurusan = $_POST['jurusan'];
     $alamat = $_POST['alamat'];
 
-   
+   $query = mysqli_query($koneksi, "update tbl_siswa set nama='$nama', kelas='$kelas', jurusan='$jurusan', alamat='$alamat' where id_siswa = '$id_siswa' ");
 
-    mysqli_query($koneksi, "update tbl_admin set username='$username', password='$password', nama='$nama', alamat='$alamat' where id_admin = '$id_admin' ");
-
-    
+    if($query){
+    $berhasil = true;
+   }
 }
 
-include "header.php";
+include "../header/header.php";
 
 
 ?>
@@ -41,16 +43,16 @@ include "header.php";
             <div class="card-body px-0 pt-0 pb-2">
               <form method="POST">
                             <div class="mb-3 mt-3 mx-4">
-                                <label for="">Username</label>
-                                <input type="text" class="form-control " name="username"  value= "<?= $siswa['username']; ?>" >
-                            </div>
-                             <div class="mb-3 mt-3 mx-4">
-                                <label for="">Password</label>
-                                <input type="text" class="form-control" name="password"   value= "<?= $siswa['password']; ?>">
-                            </div>
-                             <div class="mb-3 mt-3 mx-4">
                                 <label for="">Nama</label>
-                                <input type="text" class="form-control" name="nama" value= "<?= $siswa['nama']; ?>">
+                                <input type="text" class="form-control " name="nama"  value= "<?= $siswa['nama']; ?>" >
+                            </div>
+                             <div class="mb-3 mt-3 mx-4">
+                                <label for="">Kelas</label>
+                                <input type="text" class="form-control" name="kelas"   value= "<?= $siswa['kelas']; ?>">
+                            </div>
+                             <div class="mb-3 mt-3 mx-4">
+                                <label for="">Jurusan</label>
+                                <input type="text" class="form-control" name="jurusan" value= "<?= $siswa['jurusan']; ?>">
                             </div>
                             <div class="mb-3 mt-3 mx-4">
                                 <label for="">Alamat</label>
@@ -70,3 +72,19 @@ include "header.php";
       </div>
     </div>
 </div> 
+
+<?php if ($berhasil) { ?>
+<script>
+
+Swal.fire({
+  title: "Berhasil!",
+  text: "Data Berhasil Di Simpan!",
+  icon: "success",
+ showConfirmButton: false,
+ timer: 2000
+}).then(() => {
+  window.location.href = "siswa.php";
+});
+
+</script>
+<?php } ?>

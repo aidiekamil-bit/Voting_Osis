@@ -1,5 +1,6 @@
 <?php
-include "config.php";
+include "../header/config.php";
+
 
 //ambil id dari URL
 $id_siswa= $_GET['id'] ?? null;
