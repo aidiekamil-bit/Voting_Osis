@@ -19,7 +19,34 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $nama = $_POST['nama'];
     $visi = $_POST['visi'];
     $misi = $_POST['misi'];
-    $foto = $_POST['foto'];
+   
+
+    if ($_FILES['foto']['name'] != ""){
+      $foto = $_FILES['foto']['name'];
+      $tmp = $_FILES['foto']['tmp_name'];
+
+      $folder = "../../assets";
+
+      move_uploaded_file($tmp, $folder . $foto);
+
+      //update + foto
+      $sql = "UPDATE tbl_calon_ketua_osis SET
+              nama='$nama',
+              visi='$visi',
+              misi='$misi',
+              foto='$foto'
+              WHERE id_calon='$id_calon' ";
+    }else{
+      //update tanpa ganti foto
+      $sql = "UPDATE tbl_calon_ketua_osis SET
+              nama='$nama',
+              visi='$visi',
+              misi='$misi'
+              WHERE id_calon='$id_calon'";
+
+    }
+
+    
 
     $query = mysqli_query($koneksi, "update tbl_calon_ketua_osis set nama_calon='$nama', visi='$visi', misi='$misi', foto='$foto' where id_calon = '$id_calon' ");
 
@@ -41,22 +68,28 @@ include "../header/header.php";
               <h6>Data Siswa</h6>
             </div>
             <div class="card-body px-0 pt-0 pb-2">
-              <form method="POST">
+              <form method="POST"  enctype="multipart/form-data">
                             <div class="mb-3 mt-3 mx-4">
                                 <label for="">Nama</label>
-                                <input type="text" class="form-control " name="nama"  value= "<?= $siswa['nama_calon']; ?>" >
+                                <input type="text" class="form-control " name="nama"  value= "<?= $siswa['nama_calon']; ?>" required >
                             </div>
                              <div class="mb-3 mt-3 mx-4">
                                 <label for="">Visi</label>
-                                <input type="text" class="form-control" name="visi"   value= "<?= $siswa['visi']; ?>">
+                                <input type="text" class="form-control" name="visi"   value= "<?= $siswa['visi']; ?>"  required>
                             </div>
                              <div class="mb-3 mt-3 mx-4">
                                 <label for="">Misi</label>
-                                <input type="text" class="form-control" name="misi" value= "<?= $siswa['misi']; ?>">
+                                <input type="text" class="form-control" name="misi" value= "<?= $siswa['misi']; ?>"  required>
                             </div>
                             <div class="mb-3 mt-3 mx-4">
+                        
                                 <label for="">Foto</label>
-                                <input type="text" class="form-control" name="foto" value= "<?= $siswa['foto']; ?>" >
+                                <div>
+                            <img src="../../assets<?= $siswa['foto']?>" class="avatar avatar-lg me-3" alt="user1" >
+                           
+                          </div>
+                                <input type="file" class="form-control mt-3" name="foto" value= "<?= $siswa['foto']; ?>"  required>
+                               
                             </div>
                             <div class= "mx-4">
                             <button class="btn btn-warning form-control ">

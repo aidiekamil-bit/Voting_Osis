@@ -11,7 +11,26 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $jurusan = $_POST['jurusan'];
     $alamat = $_POST['alamat'];
 
-   $query = mysqli_query($koneksi, "INSERT INTO tbl_siswa (nama, kelas, jurusan, alamat) VALUES ('$nama', '$kelas', '$jurusan', '$alamat')" );
+
+     //lokasi tujuan foto
+  $folder = "../../assets";
+
+  //ambil data file
+  $namaFile = $_FILES['foto']['name'];
+  $tmpFile = $_FILES['foto']['tmp_name'];
+
+  //$_FILES['foto']['name'];
+  //$_FILES adalah variabel bawaan php untuk menampung data file yang di-upload.
+  // [foto] : name yang ada di form . [name] untuk mengambil Nama asli file yang di-ulpload oleh user.
+
+  // Bikin nama unik biar ga nabrak
+  $namaBaru = time() . "_" . $namaFile;
+
+  //pindahkan nama file
+  move_uploaded_file($tmpFile, $folder . $namaBaru);
+
+
+   $query = mysqli_query($koneksi, "INSERT INTO tbl_siswa (nama, kelas, jurusan, alamat, foto) VALUES ('$nama', '$kelas', '$jurusan', '$alamat', '$namaBaru')" );
 
    if($query){
     $berhasil = true;
@@ -26,22 +45,26 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
               <h6>Data Siswa</h6>
             </div>
             <div class="card-body px-0 pt-0 pb-2">
-              <form method="POST">
+              <form method="POST"  enctype="multipart/form-data">
                             <div class="mb-3 mt-3 mx-4">
                                 <label for="">Nama</label>
-                                <input type="text" class="form-control " name="nama" placeholder="Input Nama">
+                                <input type="text" class="form-control " name="nama" placeholder="Input Nama"  required>
                             </div>
                              <div class="mb-3 mt-3 mx-4">
                                 <label for="">Kelas</label>
-                                <input type="text" class="form-control" name="kelas"  placeholder="Input Kelas">
+                                <input type="text" class="form-control" name="kelas"  placeholder="Input Kelas"  required>
                             </div>
                              <div class="mb-3 mt-3 mx-4">
                                 <label for="">Jurusan</label>
-                                <input type="text" class="form-control" name="jurusan"  placeholder="Input Jurusan">
+                                <input type="text" class="form-control" name="jurusan"  placeholder="Input Jurusan"  required>
                             </div>
                             <div class="mb-3 mt-3 mx-4">
                                 <label for="">Alamat</label>
-                                <input type="text" class="form-control" name="alamat"  placeholder="Input Alamat">
+                                <input type="text" class="form-control" name="alamat"  placeholder="Input Alamat"  required>
+                            </div>
+                             <div class="mb-3 mt-3 mx-4">
+                                <label for="">Foto</label>
+                                <input type="file" class="form-control" name="foto"  required>
                             </div>
                             <div class= "mx-4">
                             <button class="btn btn-warning form-control ">

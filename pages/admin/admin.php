@@ -30,6 +30,7 @@ $current_page = basename($_SERVER['PHP_SELF']);
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Password</th>
                       <th class=" text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7 " >Nama</th>
                        <th class=" text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7 " >alamat</th>
+                       <th class=" text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7 " >Foto</th>
                        <th class=" text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7 " >Actions</th>
                       <th></th>
                        <th></th>
@@ -54,7 +55,7 @@ $current_page = basename($_SERVER['PHP_SELF']);
                       <td>
                         <div class="d-flex px-2 py-1">
                           <div>
-                            <img src="../../assets/img/team-2.jpg" class="avatar avatar-sm me-3" alt="user1">
+                            <img src="../../assets<?= $data['foto']?>" class="avatar avatar-sm me-3" alt="user1">
                           </div>
                           <div class="d-flex flex-column justify-content-center">
                             <h6 class="mb-0 text-sm"><?= $data['username']?></h6>
@@ -72,9 +73,12 @@ $current_page = basename($_SERVER['PHP_SELF']);
                       <td class="align-middle  text-center text-sm ">
                         <span class="text-secondary text-xs font-weight-bold " ><?= $data['alamat']?></span>
                       </td>
+                      <td class="align-middle  text-center text-sm ">
+                        <span class="text-secondary text-xs font-weight-bold " ><?= $data['foto']?></span>
+                      </td>
                       <td class="text-center"> 
                        <a href="edit_admin.php?id=<?=$data['id_admin'];?>" class="text-secondary font-weight-bold text-xs text-white" data-toggle="tooltip" data-original-title="Edit user">  
-                      <button class="btn  btn-primary  w-35 ">
+                      <button class="btn  btn-primary   ">
                           Edit
                       </button>
                        </a>

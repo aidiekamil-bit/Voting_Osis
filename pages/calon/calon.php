@@ -52,7 +52,8 @@ $current_page = basename($_SERVER['PHP_SELF']);
                       <td>
                         <div class="d-flex px-2 py-1">
                           <div>
-                            <img src="../../assets/img/team-2.jpg" class="avatar avatar-sm me-3" alt="user1">
+                            <img src="../../assets<?= $data['foto']?>" class="avatar avatar-sm me-3" alt="user1">
+                           
                           </div>
                           <div class="d-flex flex-column justify-content-center">
                             <h6 class="mb-0 text-sm"><?= $data['nama_calon']?></h6>
@@ -71,8 +72,10 @@ $current_page = basename($_SERVER['PHP_SELF']);
                         <span class="text-secondary text-xs font-weight-bold " ><?= $data['foto']?></span>
                       </td>
                       <td class="text-center">
-                      <a  href="edit_calon.php?id=<?=$data['id_calon'];?>" class="text-secondary font-weight-bold text-xs text-white" data-toggle="tooltip" data-original-title="Edit user">  
-                      <button class="btn  btn-primary  w-35">
+                        
+                      <a  href="edit_calon.php?id=<?=$data['id_calon'];?> "  class="text-secondary font-weight-bold text-xs text-white" data-toggle="tooltip" data-original-title="Edit user"> 
+                      
+                      <button class="btn  btn-primary  ">
                         Edit
                   </button>
                   </a>
