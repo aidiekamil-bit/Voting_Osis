@@ -1,6 +1,7 @@
 <?php
+session_start();
 include "pages/header/config.php";
-include "pages/voting/proses_vote.php";
+
 ?>
 
 
@@ -31,6 +32,8 @@ include "pages/voting/proses_vote.php";
 
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
+
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
   <!-- =======================================================
   * Template Name: QuickStart
@@ -120,13 +123,16 @@ include "pages/voting/proses_vote.php";
               PILIH
 </button>
                   </div>
+  
  </form>
+
+         
             </div>
 
 </div>
+
          
-                  </div>
-                  </div>
+                
                   
 
     </section><!-- /Hero Section -->

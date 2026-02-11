@@ -2,6 +2,7 @@
 session_start();
 include "../header/config.php";
 
+
 $berhasil = false;
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -13,15 +14,24 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $simpan = mysqli_query($koneksi, "INSERT INTO tbl_voting (id_calon, tanggal, id_siswa) VALUES ('$id_calon', '$tanggal', '0')" );
 
-   
-
-    if($simpan){
+   if($simpan){
     $berhasil = true;
    }
+
+   
   }
 
 ?>
-<?php if ($berhasil) { ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <?php if ($berhasil) { ?>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
 
 Swal.fire({
@@ -31,8 +41,11 @@ Swal.fire({
  showConfirmButton: false,
  timer: 2000
 }).then(() => {
-  window.location.href = "index.php";
+  window.location.href = "../../index.php";
 });
 
 </script>
 <?php } ?>
+  
+</body>
+</html>
