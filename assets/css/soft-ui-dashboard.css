@@ -3850,7 +3850,7 @@ textarea.form-control.is-invalid {
 }
 
 .btn:disabled,
-.btn.disabled,
+.btn.disabled, 
 fieldset:disabled .btn {
   color: var(--bs-btn-disabled-color);
   pointer-events: none;
@@ -3858,14 +3858,14 @@ fieldset:disabled .btn {
   border-color: var(--bs-btn-disabled-border-color);
   opacity: var(--bs-btn-disabled-opacity);
 }
-
+  
 .btn-primary {
-  --bs-btn-color: #000;
-  --bs-btn-bg: #f97316;
-  --bs-btn-border-color: #f97316;
+  --bs-btn-color: #000000;
+  --bs-btn-bg: #0e1bd3;
+  --bs-btn-border-color: #0c10d2;
   --bs-btn-hover-color: #000;
-  --bs-btn-hover-bg: rgb(249.9, 136, 56.95);
-  --bs-btn-hover-border-color: rgb(249.6, 129, 45.3);
+  --bs-btn-hover-bg: rgb(41, 11, 235);
+  --bs-btn-hover-border-color: rgb(10, 31, 221);
   --bs-btn-focus-shadow-rgb: 212, 98, 19;
   --bs-btn-active-color: #000;
   --bs-btn-active-bg: rgb(250.2, 143, 68.6);

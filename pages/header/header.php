@@ -1,5 +1,7 @@
 <?php
+session_start();
 $current_page = basename($_SERVER['PHP_SELF']);
+
 ?>
 
 <!DOCTYPE html>
@@ -151,7 +153,11 @@ $current_page = basename($_SERVER['PHP_SELF']);
           </div>
         </div>
       </div>
-      <a class="btn btn-primary mt-3 w-100" href="https://www.creative-tim.com/product/soft-ui-dashboard-pro?ref=sidebarfree">Upgrade to pro</a>
+      <a  href="../../logout_admin.php" onclick="return confirm('Yakin mau logout?')">
+                <span class="btn btn-danger  btn-sm-6 mb-0 me-3 mt-3 w-100"
+      
+      >Logout</span>
+              </a>
     </div>
   </aside>
   <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
@@ -174,12 +180,12 @@ $current_page = basename($_SERVER['PHP_SELF']);
           </div>
           <ul class="navbar-nav  justify-content-end">
             <li class="nav-item d-flex align-items-center">
-              <a class="btn btn-outline-primary btn-sm mb-0 me-3" target="_blank" href="https://www.creative-tim.com/builder?ref=navbar-soft-ui-dashboard">Online Builder</a>
+              <a class="btn btn-primary btn-lg mb-0 me-3 " target="_blank" ><?= $_SESSION['nama']; ?></a>
             </li>
             <li class="nav-item d-flex align-items-center">
-              <a href="javascript:;" class="nav-link text-body font-weight-bold px-0">
-                <i class="fa fa-user me-sm-1"></i>
-                <span class="d-sm-inline d-none">Sign In</span>
+              <!-- <a href="javascript:;" class="nav-link text-body font-weight-bold px-0">
+                <i class="fa fa-user me-sm-1"></i> -->
+                
               </a>
             </li>
             <li class="nav-item d-xl-none ps-3 d-flex align-items-center">

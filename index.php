@@ -1,6 +1,10 @@
 <?php
 session_start();
-include "pages/header/config.php";
+// kalau session login belum ada, arahkan ke halaman login lagi
+ if (!isset($_SESSION['login'])){
+   header("Location: login.php");
+ }
+ include "pages/header/config.php";
 
 ?>
 
@@ -61,7 +65,13 @@ include "pages/header/config.php";
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
 
-      <a class="btn-getstarted" href="index.php#about">Get Started</a>
+      <a class="btn-getstarted" href="index.php#about"><?= $_SESSION['nama']; ?></a>
+
+      <a href="logout.php" onclick="return confirm('Yakin mau logout?')"
+      class="btn btn-danger"
+      style="font-size: 14px; padding: 8px 25px;
+      margin: 0 0 0 10px; border-radius: 50px;
+      transition: 0.3s;">Logout</a>
 
     </div>
   </header>
