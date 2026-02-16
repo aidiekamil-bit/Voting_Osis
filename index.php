@@ -67,13 +67,34 @@ session_start();
 
       <a class="btn-getstarted" href="index.php#about"><?= $_SESSION['nama']; ?></a>
 
-      <a href="logout.php" onclick="return confirm('Yakin mau logout?')"
+      <a href="logout.php" onclick=" confirmLogout();return false;"
       class="btn btn-danger"
       style="font-size: 14px; padding: 8px 25px;
       margin: 0 0 0 10px; border-radius: 50px;
       transition: 0.3s;">Logout</a>
 
+
     </div>
+     <script>
+    function  confirmLogout(){
+    Swal.fire({
+  title: "Apakah Anda Yakin ?",
+  text: "Anda akan keluar dari akun ini!",
+  showDenyButton: true,
+  // showCancelButton: true,
+  confirmButtonText: "Ya, Logout!",
+  cancelButtonText: 'Batal',
+  // denyButtonText: `Don't save`
+}).then((result) => {
+  if (result.isConfirmed) {
+    window.location = 'login.php';
+    Swal.fire("Berhasil Logout", "", "success");
+  } else if (result.isDenied) {
+    Swal.fire("Tidak jadi Logout", "", "info");
+  }
+});
+ }
+   </script>              
   </header>
 
   <main class="main">

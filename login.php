@@ -30,6 +30,7 @@
 	<link rel="stylesheet" type="text/css" href="assests_login/css/util.css">
 	<link rel="stylesheet" type="text/css" href="assests_login/css/main.css">
 <!--===============================================================================================-->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body style="background-color: #666666;">
 	
@@ -76,6 +77,7 @@
 						<button class="login100-form-btn">
 							Login
 						</button>
+						
 					</div>
 					
 					<div class="text-center p-t-46 p-b-20">

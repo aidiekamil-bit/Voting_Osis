@@ -153,10 +153,30 @@ $current_page = basename($_SERVER['PHP_SELF']);
           </div>
         </div>
       </div>
-      <a  href="../../logout_admin.php" onclick="return confirm('Yakin mau logout?')">
-                <span class="btn btn-danger  btn-sm-6 mb-0 me-3 mt-3 w-100"
+      <a  href="../../logout_admin.php" onclick=" confirmLogout();return false;">
+                <span class="btn btn-warning  btn-sm-6 mb-0 me-3 mt-3 w-100"
       
       >Logout</span>
+       <script>
+    function  confirmLogout(){
+    Swal.fire({
+  title: "Apakah Anda Yakin ?",
+  text: "Anda akan keluar dari akun ini!",
+  showDenyButton: true,
+  // showCancelButton: true,
+  confirmButtonText: "Ya, Logout!",
+  cancelButtonText: 'Batal',
+  // denyButtonText: `Don't save`
+}).then((result) => {
+  if (result.isConfirmed) {
+    window.location = '../../login_admin.php';
+    Swal.fire("Berhasil Logout", "", "success");
+  } else if (result.isDenied) {
+    Swal.fire("Tidak jadi Logout", "", "info");
+  }
+});
+ }
+   </script>              
               </a>
     </div>
   </aside>

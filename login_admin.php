@@ -1,16 +1,5 @@
 <?php
 
-$berhasil = true;
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $username = $_POST['username'];
-    $password = $_POST['password'];
-
-    //cek db
-    $simpan = mysqli_query($koneksi, "select * from tbl_admin where username='$username' and password='$password'");
-if($simpan){
-    $berhasil = true;
-   }
-}
 ?>
 
 <!DOCTYPE html>
@@ -106,30 +95,14 @@ if($simpan){
 					</div>
 				</form>
 
-				<div class="login100-more position-relative overflow-hidden">
-				<video autoplay muted loop playsinline style="position: absolute; top:0;
+				<div class="login100-more position-relative overflow-hidden"><img src="assests_login/images/arrangement-with-devices-copy-space.jpg" playsinline style="position: absolute; top:0;
 				left: 0; width: 100%; height: 100%; object-fit: cover;">
-					<source src="assests_login/images/img.mp4" type="video/mp4">
-				</video>
+					
 				</div>
 				
 			</div>
 		</div>
-        <?php if ($berhasil) { ?>
-<script>
-
-Swal.fire({
-  title: "Berhasil!",
-  text: "Data Berhasil Di Simpan!",
-  icon: "success",
- showConfirmButton: false,
- timer: 2000
-}).then(() => {
-  window.location.href = "pages/dashbord/dashbord.php";
-});
-
-</script>
-<?php } ?>
+        
 	</div>
 	
 	

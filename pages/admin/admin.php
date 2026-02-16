@@ -88,7 +88,7 @@ $current_page = basename($_SERVER['PHP_SELF']);
                   </button>
                   </a> -->
                   <a href="#" class="text-secondary font-weight-bold text-xs text-white" onclick="hapusSiswa(<?= $data['id_admin'] ?>)" data-toggle="tooltip" data-original-title="Edit user">
-                         <button class="btn  btn-danger  ">
+                         <button class="btn  btn-warning  ">
                         Delete
                   </button>
                   </a>
