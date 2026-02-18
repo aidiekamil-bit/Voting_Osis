@@ -19,7 +19,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         //simpan dalam session
         $_SESSION['login'] = true;
         $_SESSION['nama'] = $data['nama'];
+        $_SESSION['foto'] = $data['foto'];
         $_SESSION['id_admin'] = $data['id_admin'];
+       
 
         //kalau login berhasil kita arahkan ke index.php
         echo" 

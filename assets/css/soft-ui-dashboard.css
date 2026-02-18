@@ -3868,12 +3868,12 @@ fieldset:disabled .btn {
   --bs-btn-hover-border-color: rgb(10, 31, 221);
   --bs-btn-focus-shadow-rgb: 212, 98, 19;
   --bs-btn-active-color: #000;
-  --bs-btn-active-bg: rgb(250.2, 143, 68.6);
-  --bs-btn-active-border-color: rgb(249.6, 129, 45.3);
+  --bs-btn-active-bg: rgb(18, 15, 223);
+  --bs-btn-active-border-color: rgb(12, 41, 232);
   --bs-btn-active-shadow: none;
   --bs-btn-disabled-color: #000;
-  --bs-btn-disabled-bg: #f97316;
-  --bs-btn-disabled-border-color: #f97316;
+  --bs-btn-disabled-bg: #0e1bd3;
+  --bs-btn-disabled-border-color: #0e1bd3;
 }
 
 .btn-secondary {
@@ -4812,7 +4812,7 @@ fieldset:disabled .btn {
 
 .nav-pills {
   --bs-nav-pills-border-radius: 0.75rem;
-  --bs-nav-pills-link-active-color: #27272a;
+  --bs-nav-pills-link-active-color: #0e1bd3;
   --bs-nav-pills-link-active-bg: #fff;
 }
 
@@ -11290,7 +11290,7 @@ fieldset:disabled .btn {
 }
 
 .bg-primary {
-  background-color: #f97316 !important;
+  background-color: #0c10d2 !important;
 }
 
 .bg-secondary {
@@ -23823,7 +23823,7 @@ html {
 .navbar-vertical .navbar-brand>img,
 .navbar-vertical .navbar-brand-img {
   max-width: 100%;
-  max-height: 2rem;
+  max-height: 3.5rem;
 }
 
 .navbar-vertical .navbar-nav {
@@ -24740,7 +24740,8 @@ html {
   }
 }
 
-.navbar-vertical .nav-item .nav-link span.sidenav-mini-icon {
+.navbar-vertical .
+ .nav-link span.sidenav-mini-icon {
   transition: all 0.2s ease-in-out;
   text-align: center;
   width: 0;

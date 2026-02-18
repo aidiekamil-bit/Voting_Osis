@@ -200,7 +200,15 @@ $current_page = basename($_SERVER['PHP_SELF']);
           </div>
           <ul class="navbar-nav  justify-content-end">
             <li class="nav-item d-flex align-items-center">
-              <a class="btn btn-primary btn-lg mb-0 me-3 " target="_blank" ><?= $_SESSION['nama']; ?></a>
+              <div class="profile-container">
+              <?php if (isset($_SESSION['foto'])): ?>
+                <img src="<?= $_SESSION['foto'] ?>"
+                class="avatar avatar-sm me-3" alt="Foto pengguna">
+                <?php else: ?>
+                  <img src="../../assets" class="avatar avatar-sm me-3" alt="Foto pengguna">
+                <?php endif; ?>
+                </div>
+              <a class="btn btn-primary btn-lg mb-0 me-3 " target="_blank" > <?= $_SESSION['nama']; ?></a>
             </li>
             <li class="nav-item d-flex align-items-center">
               <!-- <a href="javascript:;" class="nav-link text-body font-weight-bold px-0">
