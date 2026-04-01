@@ -161,10 +161,10 @@ $current_page = basename($_SERVER['PHP_SELF']);
         
       </ul>
     </div>
-    <div class="sidenav-footer mx-3 ">
+    <div class="sidenav-footer mx-3 mt-auto pt-5 pb-2 " style="padding-top: 500vh;">
      
       <a  href="../../logout_admin.php" onclick=" confirmLogout();return false;">
-                <span class="btn btn-warning  btn-lg mb-0 me-3 mt-5 w-100" style="margin-top: 500px"
+                <span class="btn btn-warning  btn-lg mb-0 me-3 mt-5 w-100"
       
       >Logout</span>
        <script>
@@ -207,14 +207,14 @@ $current_page = basename($_SERVER['PHP_SELF']);
           </div>
           <ul class="navbar-nav  justify-content-end">
             <li class="nav-item d-flex align-items-center">
-              <div class="profile-container">
+              <!-- <div class="profile-container">
               <?php if (isset($_SESSION['foto'])): ?>
                 <img src="<?= $_SESSION['foto'] ?>"
                 class="avatar avatar-sm me-3" alt="Foto pengguna">
                 <?php else: ?>
                   <img src="../../assets" class="avatar avatar-sm me-3" alt="Foto pengguna">
                 <?php endif; ?>
-                </div>
+                </div> -->
               <a class="btn btn-primary btn-lg mb-0 me-3 " target="_blank" > <?= $_SESSION['nama']; ?></a>
             </li>
             <li class="nav-item d-flex align-items-center">

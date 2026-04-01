@@ -40,7 +40,7 @@ $current_page = basename($_SERVER['PHP_SELF']);
                           <li><a class="dropdown-item border-radius-md" href="javascript:;">Something else here</a></li>
                         </ul>
                       </div>
-                      <p class="text-white text-sm text-end font-weight-bolder mt-auto mb-0">+55%</p>
+                      <p class="text-white text-sm text-end font-weight-bolder mt-auto mb-0"></p>
                     </div>
                   </div>
                 </div>
@@ -62,7 +62,7 @@ $current_page = basename($_SERVER['PHP_SELF']);
                         echo $calon['total_pemilih'];
                         ?>
                       </h5>
-                      <span class="text-white text-sm">Total Siswa Yang Sudah Vote</span>
+                      <span class="text-white text-sm">Total Voting Siswa</span>
                     </div>
                     <div class="col-4">
                       <div class="dropstart text-end mb-6">
@@ -75,7 +75,7 @@ $current_page = basename($_SERVER['PHP_SELF']);
                           <li><a class="dropdown-item border-radius-md" href="javascript:;">Something else here</a></li>
                         </ul>
                       </div>
-                      <p class="text-white text-sm text-end font-weight-bolder mt-auto mb-0">+124%</p>
+                      <p class="text-white text-sm text-end font-weight-bolder mt-auto mb-0"></p>
                     </div>
                   </div>
                 </div>
@@ -112,7 +112,7 @@ $current_page = basename($_SERVER['PHP_SELF']);
                           <li><a class="dropdown-item border-radius-md" href="javascript:;">Something else here</a></li>
                         </ul>
                       </div>
-                      <p class="text-white text-sm text-end font-weight-bolder mt-auto mb-0">+15%</p>
+                      <p class="text-white text-sm text-end font-weight-bolder mt-auto mb-0"></p>
                     </div>
                   </div>
                 </div>
@@ -127,10 +127,19 @@ $current_page = basename($_SERVER['PHP_SELF']);
                       <div class="icon icon-shape bg-white shadow text-center border-radius-2xl">
                         <i class="ni ni-like-2 text-dark text-gradient text-lg opacity-10" aria-hidden="true"></i>
                       </div>
-                      <h5 class="text-white font-weight-bolder mb-0 mt-3">
-                        940
-                      </h5>
-                      <span class="text-white text-sm">Likes</span>
+                      <h6 class="text-white font-weight-bolder mb-0 mt-3">
+                       <?php
+                       $query = mysqli_query($koneksi, "SELECT tbl_calon_ketua_osis.nama_calon, COUNT(tbl_voting.id_calon) AS jumlah
+FROM tbl_calon_ketua_osis INNER JOIN tbl_voting 
+ON tbl_voting.id_calon = tbl_calon_ketua_osis.id_calon
+GROUP BY tbl_calon_ketua_osis.nama_calon
+ORDER BY jumlah DESC
+LIMIT 1;");
+ $calon = mysqli_fetch_assoc($query); //ambil 1 baris
+  echo $calon['nama_calon'];
+?>
+                      </h6>
+                      <span class="text-white text-sm">Pemenang Sementara</span>
                     </div>
                     <div class="col-4">
                       <div class="dropstart text-end mb-6">
@@ -143,7 +152,7 @@ $current_page = basename($_SERVER['PHP_SELF']);
                           <li><a class="dropdown-item border-radius-md" href="javascript:;">Something else here</a></li>
                         </ul>
                       </div>
-                      <p class="text-white text-sm text-end font-weight-bolder mt-auto mb-0">+90%</p>
+                      <p class="text-white text-sm text-end font-weight-bolder mt-auto mb-0"></p>
                     </div>
                   </div>
                 </div>

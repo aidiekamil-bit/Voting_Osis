@@ -4,7 +4,7 @@ include "../header/header.php";
 
 $current_page = basename($_SERVER['PHP_SELF']);
 
-$query = mysqli_query($koneksi, "SELECT tbl_calon_ketua_osis.nama_calon, COUNT(tbl_voting.id_calon) AS jumlah
+$query = mysqli_query($koneksi, "SELECT tbl_calon_ketua_osis.nama_calon, tbl_calon_ketua_osis.foto, COUNT(tbl_voting.id_calon) AS jumlah
 FROM tbl_calon_ketua_osis INNER JOIN tbl_voting
 on tbl_voting.id_calon=tbl_calon_ketua_osis.id_calon
 GROUP BY tbl_voting.id_calon");
@@ -85,5 +85,14 @@ const ctx = document.getElementById('myChart');
     }
   });
 </script>
+<div class="row">
+        <?php foreach ($query as $row): ?>
+        <div class="col-md-4 text-center d-flex justify-content-center mt-3 mb-3">
+            <img src="../../assets<?= $row['foto']; ?>" style="width:200px; height:200px; border-radius:5%;">
+            
+        </div>
+        <?php endforeach; ?>
+    </div>
 </div>
 </div>
+
