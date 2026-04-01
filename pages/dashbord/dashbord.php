@@ -2,6 +2,8 @@
 include "../header/header.php";
 include "../header/config.php";
 $current_page = basename($_SERVER['PHP_SELF']);
+
+
 ?>
 
 
@@ -19,9 +21,13 @@ $current_page = basename($_SERVER['PHP_SELF']);
                         <i class="ni ni-circle-08 text-dark text-gradient text-lg opacity-10" aria-hidden="true"></i>
                       </div>
                       <h5 class="text-white font-weight-bolder mb-0 mt-3">
-                        1600
+                         <?php
+                        $query = mysqli_query($koneksi, "SELECT count(id_calon) as jumlah_calon from tbl_calon_ketua_osis;");
+                        $calon = mysqli_fetch_assoc($query); //ambil 1 baris
+                        echo $calon['jumlah_calon'];
+                        ?>
                       </h5>
-                      <span class="text-white text-sm">Users Active</span>
+                      <span class="text-white text-sm">Total Calon Ketua Osis</span>
                     </div>
                     <div class="col-4">
                       <div class="dropdown text-end mb-6">
@@ -51,12 +57,12 @@ $current_page = basename($_SERVER['PHP_SELF']);
                       </div>
                       <h5 class="text-white font-weight-bolder mb-0 mt-3">
                         <?php
-                        $query = mysqli_query($koneksi, "SELECT count(id_calon) as jumlah_calon from tbl_calon_ketua_osis;");
+                        $query = mysqli_query($koneksi, "SELECT COUNT(*) AS total_pemilih FROM tbl_voting;");
                         $calon = mysqli_fetch_assoc($query); //ambil 1 baris
-                        echo $calon['jumlah_calon'];
+                        echo $calon['total_pemilih'];
                         ?>
                       </h5>
-                      <span class="text-white text-sm">Jumlah Calon </br>Ketua Osis</span>
+                      <span class="text-white text-sm">Total Siswa Yang Sudah Vote</span>
                     </div>
                     <div class="col-4">
                       <div class="dropstart text-end mb-6">
@@ -87,9 +93,13 @@ $current_page = basename($_SERVER['PHP_SELF']);
                         <i class="ni ni-cart text-dark text-gradient text-lg opacity-10" aria-hidden="true"></i>
                       </div>
                       <h5 class="text-white font-weight-bolder mb-0 mt-3">
-                        2300
+                       <?php
+                        $query = mysqli_query($koneksi, "SELECT COUNT(*) AS total_siswa FROM tbl_siswa;");
+                        $calon = mysqli_fetch_assoc($query); //ambil 1 baris
+                        echo $calon['total_siswa'];
+                        ?>
                       </h5>
-                      <span class="text-white text-sm">Purchases</span>
+                      <span class="text-white text-sm">Total Siswa</span>
                     </div>
                     <div class="col-4">
                       <div class="dropdown text-end mb-6">
@@ -143,62 +153,87 @@ $current_page = basename($_SERVER['PHP_SELF']);
         </div>
         <div class="col-lg-6 col-12 mt-4 mt-lg-0">
           <div class="card shadow h-100">
-            <div class="card-header pb-0 p-3">
-              <h6 class="mb-0">Reviews</h6>
-            </div>
-            <div class="card-body pb-0 p-3">
-              <ul class="list-group">
-                <li class="list-group-item border-0 d-flex align-items-center px-0 mb-0">
-                  <div class="w-100">
-                    <div class="d-flex mb-2">
-                      <span class="me-2 text-sm font-weight-bold text-dark">Positive Reviews</span>
-                      <span class="ms-auto text-sm font-weight-bold">80%</span>
-                    </div>
-                    <div>
-                      <div class="progress progress-md">
-                        <div class="progress-bar bg-primary w-80" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-                      </div>
-                    </div>
-                  </div>
-                </li>
-                <li class="list-group-item border-0 d-flex align-items-center px-0 mb-2">
-                  <div class="w-100">
-                    <div class="d-flex mb-2">
-                      <span class="me-2 text-sm font-weight-bold text-dark">Neutral Reviews</span>
-                      <span class="ms-auto text-sm font-weight-bold">17%</span>
-                    </div>
-                    <div>
-                      <div class="progress progress-md">
-                        <div class="progress-bar bg-primary w-10" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
-                      </div>
-                    </div>
-                  </div>
-                </li>
-                <li class="list-group-item border-0 d-flex align-items-center px-0 mb-2">
-                  <div class="w-100">
-                    <div class="d-flex mb-2">
-                      <span class="me-2 text-sm font-weight-bold text-dark">Negative Reviews</span>
-                      <span class="ms-auto text-sm font-weight-bold">3%</span>
-                    </div>
-                    <div>
-                      <div class="progress progress-md">
-                        <div class="progress-bar bg-primary w-5" role="progressbar" aria-valuenow="5" aria-valuemin="0" aria-valuemax="100"></div>
-                      </div>
-                    </div>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="card-footer pt-0 p-3 d-flex align-items-center">
-              <div class="w-60">
-                <p class="text-sm">
-                  More than <b>1,500,000</b> developers used Creative Tim's products and over <b>700,000</b> projects were created.
-                </p>
-              </div>
-              <div class="w-40 text-end">
-                <a class="btn btn-dark mb-0 text-end" href="javascript:;">View all reviews</a>
-              </div>
-            </div>
+           
+<?php
+$query = mysqli_query($koneksi, "SELECT tbl_calon_ketua_osis.nama_calon, COUNT(tbl_voting.id_calon) AS jumlah
+FROM tbl_calon_ketua_osis INNER JOIN tbl_voting
+on tbl_voting.id_calon=tbl_calon_ketua_osis.id_calon
+GROUP BY tbl_voting.id_calon");
+
+foreach($query as $row){
+    $nama_calon[] = $row['nama_calon'];
+    $jumlah[] = $row['jumlah'];
+}
+?>
+
+              <div style="height: 100;">
+        <canvas id="horizontalBarChart"></canvas>
+    </div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+const nama = <?=  json_encode($nama_calon); ?>;
+
+const jumlah = <?=  json_encode($jumlah); ?>;
+
+        // Data for the chart
+        const data = {
+            labels: nama,
+            datasets: [{
+                label: '# Voting',
+                data: jumlah,
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(255, 159, 64, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)'
+                ],
+                borderWidth: 1
+            }]
+        };
+
+        // Configuration options
+        const config = {
+            type: 'bar', // The type is still 'bar'
+            data: data,
+            options: {
+                indexAxis: 'y', // Set the index axis to 'y' for horizontal bars
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    },
+                    title: {
+                        display: true,
+                        text: 'Laporan Horizontal '
+                    }
+                },
+                scales: {
+                    x: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        };
+
+        // Create the chart
+        const myChart = new Chart(
+            document.getElementById('horizontalBarChart'),
+            config
+        );
+    </script>
+           
           </div>
         </div>
       </div>
@@ -480,10 +515,10 @@ $current_page = basename($_SERVER['PHP_SELF']);
         <div class="col-lg-4 col-md-6">
           <div class="card h-100">
             <div class="card-header pb-0">
-              <h6>Orders overview</h6>
+              <h6>Timeline Osis</h6>
               <p class="text-sm">
-                <i class="fa fa-arrow-up text-success" aria-hidden="true"></i>
-                <span class="font-weight-bold">24%</span> this month
+                <i class="fa fa-calendar" style="color: rgb(255, 212, 59)" aria-hidden="true"></i>
+                <span class="font-weight-bold">Bulan Desember</span> 
               </p>
             </div>
             <div class="card-body p-3">
@@ -493,7 +528,7 @@ $current_page = basename($_SERVER['PHP_SELF']);
                     <i class="ni ni-bell-55 text-success text-gradient"></i>
                   </span>
                   <div class="timeline-content">
-                    <h6 class="text-dark text-sm font-weight-bold mb-0">$2400, Design changes</h6>
+                    <h6 class="text-dark text-sm font-weight-bold mb-0">Pengukuhan Ketua Osis Baru</h6>
                     <p class="text-secondary font-weight-bold text-xs mt-1 mb-0">22 DEC 7:20 PM</p>
                   </div>
                 </div>
@@ -502,7 +537,7 @@ $current_page = basename($_SERVER['PHP_SELF']);
                     <i class="ni ni-html5 text-danger text-gradient"></i>
                   </span>
                   <div class="timeline-content">
-                    <h6 class="text-dark text-sm font-weight-bold mb-0">New order #1832412</h6>
+                    <h6 class="text-dark text-sm font-weight-bold mb-0">Pengumumuan Calon Ketua</h6>
                     <p class="text-secondary font-weight-bold text-xs mt-1 mb-0">21 DEC 11 PM</p>
                   </div>
                 </div>
@@ -511,7 +546,7 @@ $current_page = basename($_SERVER['PHP_SELF']);
                     <i class="ni ni-cart text-info text-gradient"></i>
                   </span>
                   <div class="timeline-content">
-                    <h6 class="text-dark text-sm font-weight-bold mb-0">Server payments for April</h6>
+                    <h6 class="text-dark text-sm font-weight-bold mb-0">Pemilihan Calon Ketua</h6>
                     <p class="text-secondary font-weight-bold text-xs mt-1 mb-0">21 DEC 9:34 PM</p>
                   </div>
                 </div>
@@ -520,7 +555,7 @@ $current_page = basename($_SERVER['PHP_SELF']);
                     <i class="ni ni-credit-card text-warning text-gradient"></i>
                   </span>
                   <div class="timeline-content">
-                    <h6 class="text-dark text-sm font-weight-bold mb-0">New card added for order #4395133</h6>
+                    <h6 class="text-dark text-sm font-weight-bold mb-0">Orasi</h6>
                     <p class="text-secondary font-weight-bold text-xs mt-1 mb-0">20 DEC 2:20 AM</p>
                   </div>
                 </div>
@@ -529,7 +564,7 @@ $current_page = basename($_SERVER['PHP_SELF']);
                     <i class="ni ni-key-25 text-primary text-gradient"></i>
                   </span>
                   <div class="timeline-content">
-                    <h6 class="text-dark text-sm font-weight-bold mb-0">Unlock packages for development</h6>
+                    <h6 class="text-dark text-sm font-weight-bold mb-0">Wawancara Calon Ketua</h6>
                     <p class="text-secondary font-weight-bold text-xs mt-1 mb-0">18 DEC 4:54 AM</p>
                   </div>
                 </div>
@@ -538,7 +573,7 @@ $current_page = basename($_SERVER['PHP_SELF']);
                     <i class="ni ni-money-coins text-dark text-gradient"></i>
                   </span>
                   <div class="timeline-content">
-                    <h6 class="text-dark text-sm font-weight-bold mb-0">New order #9583120</h6>
+                    <h6 class="text-dark text-sm font-weight-bold mb-0">Pendaftaran</h6>
                     <p class="text-secondary font-weight-bold text-xs mt-1 mb-0">17 DEC</p>
                   </div>
                 </div>

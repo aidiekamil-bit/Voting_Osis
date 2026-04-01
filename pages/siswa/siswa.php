@@ -121,8 +121,13 @@ $current_page = basename($_SERVER['PHP_SELF']);
   // denyButtonText: `Don't save`
 }).then((result) => {
   if (result.isConfirmed) {
+     Swal.fire("Data Terhapus", "", "success");
+    setTimeout(() => {
+      
     window.location = 'delete_siswa.php?id= ' + id_siswa;
-    Swal.fire("Data Terhapus", "", "success");
+   
+    }, 2000);
+    
   } else if (result.isDenied) {
     Swal.fire("Changes are not saved", "", "info");
   }
