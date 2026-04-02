@@ -3946,19 +3946,19 @@ fieldset:disabled .btn {
 
 .btn-danger {
   --bs-btn-color: #000;
-  --bs-btn-bg: #fbff04;
-  --bs-btn-border-color: #fbff04;
+  --bs-btn-bg: #d80f1f;
+  --bs-btn-border-color: #c70b0b;
   --bs-btn-hover-color: #000;
-  --bs-btn-hover-bg: rgb(225, 236, 20);
-  --bs-btn-hover-border-color: rgb(189, 227, 18);
+  --bs-btn-hover-bg: rgb(179, 10, 19);
+  --bs-btn-hover-border-color: rgb(176, 7, 38);
   --bs-btn-focus-shadow-rgb: 203, 58, 58;
   --bs-btn-active-color: #000;
-  --bs-btn-active-bg: rgb(242.2, 105.4, 105.4);
-  --bs-btn-active-border-color: rgb(240.6, 86.7, 86.7);
+  --bs-btn-active-bg: rgb(167, 10, 10);
+  --bs-btn-active-border-color: rgb(195, 10, 13);
   --bs-btn-active-shadow: none;
   --bs-btn-disabled-color: #000;
-  --bs-btn-disabled-bg: #ef4444;
-  --bs-btn-disabled-border-color: #ef4444;
+  --bs-btn-disabled-bg: #b10d0d;
+  --bs-btn-disabled-border-color: #a30b22;
 }
 
 .btn-light {
@@ -24740,7 +24740,7 @@ html {
   }
 }
 
-.navbar-vertical .
+.navbar-vertical 
  .nav-link span.sidenav-mini-icon {
   transition: all 0.2s ease-in-out;
   text-align: center;
@@ -26387,7 +26387,7 @@ p {
   -ms-touch-action: manipulation;
   touch-action: manipulation;
   background: #fff;
-  -webkit-box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+  --webkit-box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
 }
 
 .flatpickr-calendar.open,
@@ -27506,10 +27506,10 @@ span.flatpickr-weekday {
   background: #fff;
   cursor: default;
   box-shadow: inset 0 0 1px #fff, inset 0 1px 7px #EBEBEB, 0 3px 6px -3px #BBB;
-  webkit-transition: 0.3s ease 0s;
+  -webkit-transition: 0.3s ease 0s;
   -moz-transition: 0.3s ease 0s;
   -ms-transition: 0.3s ease 0s;
-  -o-transform: 0.3s ease 0s;
+  transform: 0.3s ease 0s;
   transition: 0.3s ease 0s;
 }
 

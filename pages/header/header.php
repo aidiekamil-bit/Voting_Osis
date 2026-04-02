@@ -114,28 +114,7 @@ $current_page = basename($_SERVER['PHP_SELF']);
             <span class="nav-link-text ms-1">Calon Ketua</span>
           </a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link  " href="../../index.php">
-            <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
-              <!-- <svg width="12px" height="12px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                <title>settings</title>
-                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                  <g transform="translate(-2020.000000, -442.000000)" fill="#FFFFFF" fill-rule="nonzero">
-                    <g transform="translate(1716.000000, 291.000000)">
-                      <g transform="translate(304.000000, 151.000000)">
-                        <polygon class="color-background opacity-6" points="18.0883333 15.7316667 11.1783333 8.82166667 13.3333333 6.66666667 6.66666667 0 0 6.66666667 6.66666667 13.3333333 8.82166667 11.1783333 15.315 17.6716667"></polygon>
-                        <path class="color-background opacity-6" d="M31.5666667,23.2333333 C31.0516667,23.2933333 30.53,23.3333333 30,23.3333333 C29.4916667,23.3333333 28.9866667,23.3033333 28.48,23.245 L22.4116667,30.7433333 L29.9416667,38.2733333 C32.2433333,40.575 35.9733333,40.575 38.275,38.2733333 L38.275,38.2733333 C40.5766667,35.9716667 40.5766667,32.2416667 38.275,29.94 L31.5666667,23.2333333 Z"></path>
-                        <path class="color-background" d="M33.785,11.285 L28.715,6.215 L34.0616667,0.868333333 C32.82,0.315 31.4483333,0 30,0 C24.4766667,0 20,4.47666667 20,10 C20,10.99 20.1483333,11.9433333 20.4166667,12.8466667 L2.435,27.3966667 C0.95,28.7083333 0.0633333333,30.595 0.00333333333,32.5733333 C-0.0583333333,34.5533333 0.71,36.4916667 2.11,37.89 C3.47,39.2516667 5.27833333,40 7.20166667,40 C9.26666667,40 11.2366667,39.1133333 12.6033333,37.565 L27.1533333,19.5833333 C28.0566667,19.8516667 29.01,20 30,20 C35.5233333,20 40,15.5233333 40,10 C40,8.55166667 39.685,7.18 39.1316667,5.93666667 L33.785,11.285 Z"></path>
-                      </g>
-                    </g>
-                  </g>
-                </g>
-              </svg> -->
-              <svg xmlns="http://www.w3.org/2000/svg" height="14" width="14" viewBox="0 0 640 640"><!--!Font Awesome Free v7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.--><path d="M72 88C72 57.1 97.1 32 128 32C158.9 32 184 57.1 184 88C184 118.9 158.9 144 128 144C97.1 144 72 118.9 72 88zM123.1 176C146.6 176 168.6 187.3 182.2 206.4L230.9 274.6C236.9 283 246.6 288 256.9 288L288 288C305.7 288 320 302.3 320 320C320 337.7 305.7 352 288 352L256.9 352C225.9 352 196.8 337 178.8 311.8L176 307.9L176 388L217.6 419.2C241.8 437.3 256 465.8 256 496L256 576C256 593.7 241.7 608 224 608C206.3 608 192 593.7 192 576L192 496C192 485.9 187.3 476.4 179.2 470.4L102.4 412.8C78.2 394.7 64 366.2 64 336L64 235.1C64 202.5 90.5 176 123.1 176zM64 576L64 443.3C67.1 446 70.3 448.7 73.6 451.2L128 492L128 576C128 593.7 113.7 608 96 608C78.3 608 64 593.7 64 576zM608 488L608 584C608 597.3 597.3 608 584 608C570.7 608 560 597.3 560 584L560 512L392 512C384.9 512 378.2 508.9 373.6 503.4C369 497.9 367.1 490.8 368.3 483.8L399 307.1L335.9 169.5L335.9 241.5C330.7 240.5 325.4 239.9 319.9 239.9L287.9 239.9L287.9 119.9C287.9 89 313 63.9 343.9 63.9L552 64C582.9 64 608 89.1 608 120L608 488zM320 400C325.5 400 330.8 399.4 336 398.4L336 584C336 597.3 325.3 608 312 608C298.7 608 288 597.3 288 584L288 400L320 400z"/></svg>
-            </div>
-            <span class="nav-link-text ms-1">Voting</span>
-          </a>
-        </li>
+        
          <li class="nav-item">
           <a class="nav-link  <?= $current_page == 'chart.php' ? 'active' : '' ?>"   href="../../pages/admin/chart.php">
             <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
@@ -161,34 +140,7 @@ $current_page = basename($_SERVER['PHP_SELF']);
         
       </ul>
     </div>
-    <div class="sidenav-footer mx-3 mt-auto pt-5 pb-2 " style="padding-top: 500vh;">
-     
-      <a  href="../../logout_admin.php" onclick=" confirmLogout();return false;">
-                <span class="btn btn-warning  btn-lg mb-0 me-3 mt-5 w-100"
-      
-      >Logout</span>
-       <script>
-    function  confirmLogout(){
-    Swal.fire({
-  title: "Apakah Anda Yakin ?",
-  text: "Anda akan keluar dari akun ini!",
-  showDenyButton: true,
-  // showCancelButton: true,
-  confirmButtonText: "Ya, Logout!",
-  cancelButtonText: 'Batal',
-  // denyButtonText: `Don't save`
-}).then((result) => {
-  if (result.isConfirmed) {
-    window.location = '../../login_admin.php';
-    Swal.fire("Berhasil Logout", "", "success");
-  } else if (result.isDenied) {
-    Swal.fire("Tidak jadi Logout", "", "info");
-  }
-});
- }
-   </script>              
-              </a>
-    </div>
+    
   </aside>
   <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
     <!-- Navbar -->
@@ -216,6 +168,36 @@ $current_page = basename($_SERVER['PHP_SELF']);
                 <?php endif; ?>
                 </div> -->
               <a class="btn btn-primary btn-lg mb-0 me-3 " target="_blank" > <?= $_SESSION['nama']; ?></a>
+            </li>
+            <li class="nav-item d-flex align-items-center">
+             
+     
+      <a  href="../../logout_admin.php" onclick=" confirmLogout();return false;">
+                <span class="btn btn-warning  btn-lg mb-0 me-3 rounded-50"
+      
+      >Logout</span>
+       <script>
+    function  confirmLogout(){
+    Swal.fire({
+  title: "Apakah Anda Yakin ?",
+  text: "Anda akan keluar dari akun ini!",
+  showDenyButton: true,
+  // showCancelButton: true,
+  confirmButtonText: "Ya, Logout!",
+  cancelButtonText: 'Batal',
+  // denyButtonText: `Don't save`
+}).then((result) => {
+  if (result.isConfirmed) {
+    window.location = '../../login_admin.php';
+    Swal.fire("Berhasil Logout", "", "success");
+  } else if (result.isDenied) {
+    Swal.fire("Tidak jadi Logout", "", "info");
+  }
+});
+ }
+   </script>              
+              </a>
+    </div>
             </li>
             <li class="nav-item d-flex align-items-center">
               <!-- <a href="javascript:;" class="nav-link text-body font-weight-bold px-0">

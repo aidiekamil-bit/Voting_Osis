@@ -17,15 +17,27 @@ $current_page = basename($_SERVER['PHP_SELF']);
  <div class="row">
         <div class="col-12">
           <div class="card mb-4">
+             <div id="areaPDF">
             <div class="card-header pb-0">
+              
               <h6>Data Siswa</h6>
-            </div>
-            
-            <div class="card-body px-0 pt-0 pb-2"><a href="tambah_siswa.php">
-                <button class="btn btn-primary w-15 mx-3 mt-3">
-                            Tambah Data
-                            </button> </a>
 </div>
+            <div class="row d-flex justify-content-end ">
+              <div class="d-flex">
+                <form action="export_pdf_siswa.php" method="POST" target="_blank" style="margin: 0; padding: 0;">
+                  <input type="hidden" name="chart_image" id="chart_image" >
+                  <button type="submit" onclick="exportPDF()" class="btn btn-danger mt-3 p-3 ms-4" style="margin: 0; padding: 12px;">
+                    Export PDF
+                  </button>
+                </form>
+                <a href="tambah_siswa.php" style="margin: 0; padding: 0;">
+                  <button class="btn btn-primary mt-3 p-3 ms-3" style="margin: 0; padding: 12px;">
+                    Tambah Data
+                  </button>
+                </a>
+              </div>
+            </div>
+
               <div class="table-responsive p-0">
                 <table class="table align-items-center mb-0">
                   <thead>
@@ -103,6 +115,8 @@ $current_page = basename($_SERVER['PHP_SELF']);
                     
                 </table>
               </div>
+            </div>
+            </div>
             </div>
           </div>
         </div>
